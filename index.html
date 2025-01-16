@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #e3f2fd, #f1f8e9);
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #007bff;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Navigation Menu */
+        nav {
+            background: #333;
+            color: white;
+            padding: 0.5rem 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s, background 0.3s;
+        }
+
+        nav ul li button:hover,
+        nav ul li button.active {
+            color: #007bff;
+            background: #fff;
+            border-radius: 5px;
+        }
+
+        /* Sections */
+        section {
+            display: none;
+            padding: 2rem;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 10px;
+            max-width: 800px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        section.active {
+            display: block;
+        }
+
+        section h2 {
+            color: #007bff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            background: #333;
+            color: white;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Website!</h1>
+        <p>Your hub to learn about my Discord server, coding journey, and more.</p>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><button class="tab-button active" data-tab="welcome">Welcome</button></li>
+            <li><button class="tab-button" data-tab="discord">Discord Server</button></li>
+            <li><button class="tab-button" data-tab="coding">Coding Journey</button></li>
+        </ul>
+    </nav>
+
+    <!-- Tab Sections -->
+    <section id="welcome" class="tab-content active">
+        <h2>About This Website</h2>
+        <p>This website is a quick introduction to who I am, what I do, and the amazing community I've built on Discord.</p>
+    </section>
+
+    <section id="discord" class="tab-content">
+        <h2>About My Discord Server</h2>
+        <p>My server is a friendly space where members can collaborate, chat, and have fun. Here are some features:</p>
+        <ul>
+            <li>Engaging discussions</li>
+            <li>Custom bots for enhanced experience</li>
+            <li>Custom moderation system</li>
+            <li>24/7 support team</li>
+            <li>Mid-active community</li>
+        </ul>
+    </section>
+
+    <section id="coding" class="tab-content">
+        <h2>My Coding Journey and Skills</h2>
+        <p>I'm currently learning to code and have experience with:</p>
+        <ul>
+            <li>Python : I am at a intermediate-advanced level. I have done many projects including discord bots and scripts</li>
+            <li>HTML, CSS : Very beginning stages, just started to learn and use them for web development.</li>
+            <li>Lua : For Roblox Studio Game Development</li>
+            <li>Java and Kotlin : For App development in Android Studio. I didn't start them, but planning to do so after I finish Python, JavaScript, HMTL and CSS.</li>
+        </ul>
+        <p>I enjoy solving problems and creating cool projects!</p>
+    </section>
+
+    <footer>
+        <p>© 2025 Coding.byAlex . All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.tab-button');
+            const sections = document.querySelectorAll('.tab-content');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and sections
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    sections.forEach(section => section.classList.remove('active'));
+
+                    // Add active class to clicked button and corresponding section
+                    button.classList.add('active');
+                    const tabName = button.getAttribute('data-tab');
+                    document.getElementById(tabName).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
